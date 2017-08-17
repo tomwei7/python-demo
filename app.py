@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/api/datetime')
 def server_time():
-    return jsonify(datetime=time.strftime('%Y-%m-%d %H:%M:%S'))
+    return jsonify(datetime=time.strftime('%Y-%m-%d'))
 
 
 if __name__ == '__main__':

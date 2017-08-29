@@ -6,7 +6,7 @@
 # If you want Google's container you would reference google/python
 # Read more about containers on our dev center
 # http://devcenter.wercker.com/docs/containers/index.html
-box: python:3.5
+box: python:2.7
 # You can also use services such as databases. Read more on our dev center:
 # http://devcenter.wercker.com/docs/services/index.html
 # services:
@@ -25,25 +25,14 @@ build:
   # Read more about steps on our dev center:
   # http://devcenter.wercker.com/docs/steps/index.html
   steps:
-    # A step that sets up the python virtual environment
-    - virtualenv:
-        name: setup virtual environment
-        install_wheel: false # Enable wheel to speed up builds (experimental)
-
-    # # Use this virtualenv step for python 3.2
-    # - virtualenv
-    #     name: setup virtual environment
-    #     python_location: /usr/bin/python3.2
-
     # A step that executes `pip install` command.
     - pip-install
 
-    # # This pip-install clears the local wheel cache
-    # - pip-install:
-    #     clean_wheel_dir: true
+    - script:
+        name: python unit test
+        code: |
+          python test.py
 
-    # A custom script step, name value is used in the UI
-    # and the code value contains the command that get executed
     - script:
         name: echo python information
         code: |

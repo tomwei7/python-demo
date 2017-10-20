@@ -16,12 +16,12 @@ pipeline {
         }
         stage('test3') {
           steps {
-            sh 'python write_file.py kfajsldfjlsd'
+            sh 'echo "" > a.txt'
           }
         }
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         sh 'cat a.txt'
       }

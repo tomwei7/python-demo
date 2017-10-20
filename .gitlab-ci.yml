@@ -1,4 +1,4 @@
-image: python2
+image: python:2
 
 before_script:
   - echo "Before script section"

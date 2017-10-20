@@ -12,6 +12,7 @@ pipeline {
           steps {
             sh 'python write_file.py testtest123'
             sh 'echo hello world'
+            sh 'return 1;'
           }
         }
         stage('test3') {

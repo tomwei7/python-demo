@@ -1,4 +1,4 @@
-image: debian:latest
+image: python2
 
 before_script:
   - echo "Before script section"
@@ -19,22 +19,21 @@ build1:
 test1:
   stage: test
   script: 
-    - echo "Do a test here"
-    - echo "For example run a test suite"
+    - python write_file.py test1
   tags:
     - test
    
 test2:
   stage: test
   script: 
-    - echo "Do another parallel test here"
-    - echo "For example run a lint test"
+    - python write_file.py test2
   tags:
     - test
    
 deploy1:
   stage: deploy
   script:
+    - cat a.txt
     - echo "Do your deploy here"
   tags:
     - test
